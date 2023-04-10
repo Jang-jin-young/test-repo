@@ -1,0 +1,92 @@
+Git command
+
+명령어로 버전 관리하기 1
+
+- git init : 로컬 저장소 만들기
+
+- git status : 작업 디렉터리 상태 확인하기
+
+- git add : 스테이지에 올리기
+  -> git add <스테이지에 추가할 대상>
+  -> git add. -한꺼번에 스테이지에 추가하기 
+
+- git command : 커밋하기
+  -> git commit -m "커밋 메시지" or git commit --message "커밋 메시지"
+-> git commit -am "커밋 메시지" -파일을 스테이지에 올리면서 커밋 동시 수행 : 스테이지에 이미 올라와 있거나 커밋을 한 번이라도 한 경우에만 사용가능 
+
+- git log : 커밋 조회하기
+  -> git log --online
+  -> git log --patch or git log -p
+  -> git log --graph
+  -> git log --branches
+
+- git tag : 태그 추가/조회/삭제하기
+  -> git tag <태그> : head가 가리키는 커밋
+  -> git tag <태그> <커밋> : 특정 커밋에 태그 붙이는 방법 
+     -> git tag --list or git tag -l or git tag : 태그 목록 조회하기 
+     -> git tag --delete or git tag -d : 태그 삭제하기
+
+명령어로 버전 관리하기 2
+
+- git diff : 최근 커밋과 작업 디렉터리 비교하기
+
+- git diff --staged : 최근 커밋과 스테이지 비교하기
+
+- git diff <커밋> <커밋> : 커밋끼리 비교하기
+  -> <커밋>에는 비교하려는 커밋의 해시 입력
+  -> git diff <이 커밋을 기준으로> <이 커밋이 달라진 점> - 무엇을 기준으로 비교하느냐에 따라 결과가 달라짐 
+
+- git diff <브랜치> <브랜치> : 브랜치끼리 비교하기
+  -> git diff <기준이 되는 브랜치> <기준과 비교할 브랜치>
+  
+- git reset <되돌아갈 커밋> : <되돌아갈 커밋>으로 되돌아가기
+  -> soft reset : 커밋만 되돌리기
+  -> mixed reset : 스테이지까지 되돌리기
+  -> hard reset : 작업 디렉터리까지 되돌리기 
+  -> 옵션없이 사용할 경우 mixed reset 
+  
+- git revert <취소할 커밋> : <취소할 커밋>이 취소된 새로운 커밋 만들기
+
+- git stash : 변경사항 임시 저장하기
+  -> git stash -m "메시지" or git stash --message "<메시지>"
+
+- git stash list : 임시 저장한 내역 조회하기
+
+- git stash apply <스태시> : 임시 저장한 작업 적용하기
+
+- git stash drop <스태시> : 임시 저장한 작업 삭제하기
+  -> git stash clear : 임시 저장된 작업 전부 삭제 
+  
+- git branch <브랜치> : 브랜치 나누기
+
+- git branch : 브랜치 목록 조회하기
+
+- git checkout <브랜치> : 체크아웃하기
+-> git checkout -b <브랜치> : 새로운 브랜치를 만들면서 동시에 체크아웃 
+
+- git merge <브랜치> : 브랜치 병합하기
+
+- git branch -d <브랜치> : 브랜치 삭제하기 
+  -> git branch --delete <브랜치>
+  
+- git rebase <브랜치> : 브랜치 재배치하기 
+
+* github - 소스트리
+클론(clone) : 원격 저장소를 복제하기
+ - 원격 저장소에서 로컬로 복사  
+ 
+푸시(push) : 원격 저장소에 밀어넣기
+ - 원격 저장소에 로컬 저장소의 변경 사항을 밀어넣는 것 
+ 
+패치(fetch) : 원격 저장소를 일단 가져만 오기
+ - 원격 저장소에서 내용이 달라지면 로컬 저장소에 병합X -> 병합이 필요 
+ 
+풀(pull) : 원격 저장소를 가져와서 합치기 
+ - 패치와 병합 동시에 하는 방법 -> 따로 병합이 필요없음
+ 
+ 깃허브로 협업
+ 1. 기여하려는 저장소를 본인 계정으로 포크하기
+ 2. 포크한 저장소를 클론하기
+ 3. 브랜치 생성 후 생성한 브랜치에서 작업하기
+ 4. 작업한 브랜치 푸시하기
+ 5. 풀 리퀘스트 보내기 
